@@ -4,14 +4,18 @@ Pitch deck and narration for **ShieldGuard, Vishing Detection Using Machine Lear
 
 The deck is a self contained web page timed to a strict five minute online video submission.
 
+## Live deck
+
+**Submission URL:** https://h0l3ym0l3h.github.io/PitchDeckEureka/
+
+GitHub Pages republishes the deck automatically whenever the `main` branch is updated.
+
 ## Files
 
 | File | What it is |
 |------|-----------|
 | `index.html` | The pitch deck. Open in a browser, full screen. |
 | `GOLD_MEDAL_NARRATIVE.md` | Full narration, rubric strategy, question and answer prep, delivery notes. |
-| `VoiceOver_Script.md` | Timecoded voiceover script only. |
-| `cover.png` | Cover image. |
 | `Call.mp3` | Sample intercepted scam call, embedded on the demo slide. |
 | `Exhibition.6.minit.mp4` | Demo video (about 607 MB, not stored in git, see note below). |
 
@@ -19,7 +23,7 @@ The deck is a self contained web page timed to a strict five minute online video
 
 1. Open `index.html` in Chrome, full screen (F11).
 2. Press `A` to turn on auto advance, then press Space. Slides move themselves along the five minute timeline while the teleprompter shows the line to read.
-3. To record clean visuals with no controls on screen, press `H` to hide all presenter tools. Press `T` or the `×` on the teleprompter to hide just the script.
+3. The deck starts in a clean judge view. Press `H` to show or hide all presenter tools. Press `T` or the `×` on the teleprompter to hide just the script.
 4. Manual control: arrow keys change slides, Space plays or pauses, `R` resets.
 5. Read from `GOLD_MEDAL_NARRATIVE.md`. Trim the demo video to its strongest 60 seconds. Keep the total at or under 5:00.
 

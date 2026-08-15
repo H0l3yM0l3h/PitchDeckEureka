@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShieldGuard | i-EIE 2026 Pitch</title>
+    <meta name="description" content="ShieldGuard — an explainable, real-time vishing detection system using machine learning and natural language processing.">
+    <meta name="theme-color" content="#030508">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ShieldGuard | i-EIE 2026 Pitch">
+    <meta property="og:description" content="Detect the words. Explain the risk. Stop the scam.">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -152,9 +160,11 @@
         .hero-subject { font-size: 1.25rem; color: var(--text-muted); font-weight: 300; max-width: 720px; margin: 0 auto 26px; }
 
         .cover-meta {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 40px; margin-top: 20px;
+            width: min(1100px, 100%); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+            justify-content: center; gap: 18px 28px; margin-top: 20px;
         }
         .cover-meta div { text-align: center; }
+        .cover-meta > .wide { grid-column: span 2; }
         .cover-meta .lbl { font-size: 0.7rem; color: var(--neon-blue); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
         .cover-meta .val { font-size: 0.98rem; color: #fff; }
         .theme-strip {
@@ -254,6 +264,448 @@
         .sdg-badge .num { font-family:'Space Grotesk'; font-size: 1.4rem; color: var(--neon-green); }
         .sdg-badge .name { font-size: 0.82rem; color: var(--text-muted); }
         .green-note { margin-top: 24px; padding: 18px 24px; border-radius: 12px; border:1px solid rgba(0,255,136,0.3); background: rgba(0,255,136,0.05); font-size: 0.95rem; }
+
+        /* =========================================
+           SUBMISSION POLISH
+           ========================================= */
+        :root {
+            --mx: 50vw;
+            --my: 35vh;
+            --panel-highlight: rgba(255,255,255,0.075);
+            --deep-blue: #071526;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at var(--mx) var(--my), rgba(0,243,255,0.035), transparent 24rem),
+                var(--bg-color);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 40;
+            pointer-events: none;
+            opacity: 0.14;
+            background: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 4px);
+            mix-blend-mode: soft-light;
+        }
+
+        section, footer {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        section[data-slide]::before,
+        footer[data-slide]::before {
+            content: attr(data-index);
+            position: absolute;
+            right: 5%;
+            bottom: -0.22em;
+            z-index: -1;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(9rem, 21vw, 21rem);
+            font-weight: 700;
+            line-height: 0.75;
+            letter-spacing: -0.08em;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.035);
+            opacity: 0;
+            transform: translateX(6%);
+            transition: opacity 1.2s ease, transform 1.2s cubic-bezier(.16,1,.3,1);
+        }
+
+        section[data-slide].is-current::before,
+        footer[data-slide].is-current::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        section[data-slide]::after,
+        footer[data-slide]::after {
+            content: '';
+            position: absolute;
+            inset: auto 9% 0;
+            height: 1px;
+            z-index: -1;
+            background: linear-gradient(90deg, transparent, rgba(0,243,255,0.28), transparent);
+        }
+
+        #problem,
+        #whyfail { background: radial-gradient(circle at 80% 45%, rgba(255,42,75,0.075), transparent 35%); }
+        #solution,
+        #methodology,
+        #novelty { background: radial-gradient(circle at 18% 42%, rgba(0,243,255,0.07), transparent 38%); }
+        #metrics,
+        #impact { background: radial-gradient(circle at 74% 45%, rgba(0,255,136,0.06), transparent 38%); }
+        #market { background: radial-gradient(circle at 22% 62%, rgba(255,213,74,0.055), transparent 36%); }
+
+        .section-header,
+        .tagline,
+        .hero-title { text-wrap: balance; }
+
+        .section-subtitle { text-wrap: pretty; }
+
+        .glass-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(255,255,255,0.062), rgba(255,255,255,0.018));
+            box-shadow: inset 0 1px 0 var(--panel-highlight), 0 22px 60px rgba(0,0,0,0.2);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            width: 55%;
+            height: 220%;
+            top: -70%;
+            left: -90%;
+            transform: rotate(18deg);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+            transition: left 0.8s cubic-bezier(.16,1,.3,1);
+            pointer-events: none;
+        }
+
+        .glass-card:hover::before { left: 135%; }
+
+        .eyebrow { text-shadow: 0 0 18px rgba(0,243,255,0.35); }
+
+        .warning-chip,
+        .novelty-chip,
+        .improve-chip {
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+        }
+
+        .arch-flow { position: relative; }
+        .arch-node { overflow: visible; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+        .arch-node:hover { transform: translateY(-6px); border-color: rgba(0,243,255,0.65); box-shadow: 0 18px 50px rgba(0,243,255,0.08); }
+        .arch-node:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -17px;
+            width: 17px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--neon-blue), transparent);
+            box-shadow: 0 0 10px rgba(0,243,255,0.55);
+        }
+
+        .metrics-grid .glass-card {
+            min-height: 190px;
+            display: grid;
+            place-content: center;
+            background: radial-gradient(circle at 50% 35%, rgba(0,255,136,0.11), transparent 58%), rgba(255,255,255,0.025);
+        }
+        .metric-value { text-shadow: 0 0 28px rgba(0,255,136,0.22); }
+
+        .video-container::after {
+            content: 'LIVE ANALYSIS';
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 11px 6px 25px;
+            border: 1px solid rgba(255,42,75,0.35);
+            border-radius: 999px;
+            background: rgba(3,5,8,0.78);
+            color: #fff;
+            font: 600 0.66rem/1 'Space Grotesk', sans-serif;
+            letter-spacing: 0.11em;
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+        }
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 27px;
+            z-index: 1;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--neon-red);
+            box-shadow: 0 0 12px var(--neon-red);
+            animation: livePulse 1.4s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes livePulse { 50% { opacity: 0.35; transform: scale(0.72); } }
+
+        /* Cinematic opening */
+        #intro {
+            padding: 0;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            min-height: 100svh;
+            border-bottom: 1px solid var(--glass-border);
+            background:
+                radial-gradient(circle at 50% 48%, rgba(0,243,255,0.12), transparent 19%),
+                radial-gradient(circle at 50% 50%, #07111d, #030508 63%);
+        }
+
+        #intro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(0,243,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,243,255,0.05) 1px, transparent 1px);
+            background-size: 54px 54px;
+            mask-image: radial-gradient(circle at center, #000, transparent 68%);
+            animation: introGrid 6s ease-out both;
+        }
+
+        #intro::after {
+            content: '';
+            position: absolute;
+            width: min(72vw, 820px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 1px solid rgba(0,243,255,0.13);
+            box-shadow: 0 0 90px rgba(0,243,255,0.06), inset 0 0 90px rgba(0,243,255,0.04);
+            animation: introRing 5.5s cubic-bezier(.16,1,.3,1) both;
+        }
+
+        @keyframes introGrid { from { opacity: 0; transform: scale(1.16); } 40%, to { opacity: 1; transform: scale(1); } }
+        @keyframes introRing { from { opacity: 0; transform: scale(0.55) rotate(-20deg); } 45%, to { opacity: 1; transform: scale(1) rotate(0); } }
+
+        .intro-stage {
+            position: relative;
+            z-index: 2;
+            width: min(960px, 88vw);
+            min-height: 540px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+
+        .intro-orbit {
+            position: absolute;
+            width: min(54vw, 540px);
+            aspect-ratio: 1;
+            border: 1px dashed rgba(0,243,255,0.16);
+            border-radius: 50%;
+            animation: orbitSpin 15s linear infinite, orbitIn 2.2s cubic-bezier(.16,1,.3,1) both;
+        }
+        .intro-orbit::before,
+        .intro-orbit::after {
+            content: '';
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            box-shadow: 0 0 22px var(--neon-blue);
+        }
+        .intro-orbit::before { top: 13%; left: 14%; }
+        .intro-orbit::after { right: 4%; bottom: 29%; background: var(--neon-red); box-shadow: 0 0 22px var(--neon-red); }
+        @keyframes orbitSpin { to { rotate: 360deg; } }
+        @keyframes orbitIn { from { opacity: 0; scale: 0.72; } to { opacity: 1; scale: 1; } }
+
+        .intro-lock {
+            position: relative;
+            width: 128px;
+            height: 152px;
+            margin-bottom: 118px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 20px 20px 66px 66px;
+            background: linear-gradient(145deg, rgba(0,243,255,0.12), rgba(0,243,255,0.015));
+            box-shadow: 0 0 28px rgba(0,243,255,0.26), inset 0 0 26px rgba(0,243,255,0.08);
+            opacity: 0;
+            animation: shieldAssemble 1.2s 1.15s cubic-bezier(.16,1,.3,1) forwards, shieldBreathe 2.4s 2.4s ease-in-out infinite;
+        }
+        .intro-lock::before {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            left: 50%;
+            top: 45%;
+            transform: translate(-50%,-50%);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255,255,255,0.65);
+        }
+        .intro-lock::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 32px;
+            left: 50%;
+            top: calc(45% + 10px);
+            transform: translateX(-50%);
+            background: linear-gradient(#fff, var(--neon-blue));
+            box-shadow: 0 0 12px var(--neon-blue);
+        }
+        @keyframes shieldAssemble { from { opacity: 0; transform: scale(0.55); filter: blur(12px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
+        @keyframes shieldBreathe { 50% { box-shadow: 0 0 62px rgba(0,243,255,0.38), inset 0 0 34px rgba(0,243,255,0.14); } }
+
+        .intro-wave {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            width: min(760px, 82vw);
+            height: 100px;
+            transform: translate(-50%,-50%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4px;
+            opacity: 0;
+            animation: waveReveal 1.1s 0.35s ease forwards, waveFade 0.8s 2.25s ease forwards;
+        }
+        .intro-wave span {
+            flex: 1;
+            max-width: 4px;
+            height: var(--h);
+            min-height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(to bottom, var(--neon-blue), rgba(0,243,255,0.18));
+            box-shadow: 0 0 8px rgba(0,243,255,0.42);
+            animation: waveform 0.62s var(--d) ease-in-out infinite alternate;
+        }
+        @keyframes waveReveal { to { opacity: 1; } }
+        @keyframes waveFade { to { opacity: 0.12; filter: blur(1px); transform: translate(-50%,-50%) scaleX(0.55); } }
+        @keyframes waveform { to { transform: scaleY(0.28); opacity: 0.38; } }
+
+        .intro-copy {
+            position: absolute;
+            top: calc(50% + 96px);
+            width: 100%;
+        }
+        .intro-kicker {
+            margin-bottom: 10px;
+            color: var(--neon-blue);
+            font: 600 0.72rem/1 'Space Grotesk', sans-serif;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: introCopy 0.8s 2.15s ease forwards;
+        }
+        .intro-title {
+            font-size: clamp(3.3rem, 8vw, 6.8rem);
+            line-height: 0.95;
+            letter-spacing: -0.055em;
+            opacity: 0;
+            transform: translateY(28px);
+            animation: introCopy 1s 2.3s cubic-bezier(.16,1,.3,1) forwards;
+        }
+        .intro-tagline {
+            margin-top: 18px;
+            color: var(--text-muted);
+            font-size: clamp(0.9rem, 2vw, 1.08rem);
+            letter-spacing: 0.08em;
+            opacity: 0;
+            animation: introCopy 0.8s 3s ease forwards;
+        }
+        @keyframes introCopy { to { opacity: 1; transform: translateY(0); } }
+
+        .intro-status {
+            position: absolute;
+            left: 50%;
+            bottom: -34px;
+            transform: translateX(-50%);
+            width: min(420px, 74vw);
+            opacity: 0;
+            animation: introCopy 0.8s 3.5s ease forwards;
+        }
+        .intro-status-line {
+            height: 2px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.08);
+        }
+        .intro-status-line::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-green));
+            box-shadow: 0 0 14px var(--neon-blue);
+            transform-origin: left;
+            animation: introLoad 2.1s 3.45s cubic-bezier(.4,0,.2,1) both;
+        }
+        .intro-status p {
+            margin-top: 10px;
+            color: rgba(255,255,255,0.48);
+            font: 500 0.64rem/1 'Space Grotesk', sans-serif;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+        }
+        @keyframes introLoad { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+        .intro-skip {
+            position: absolute;
+            z-index: 4;
+            right: 28px;
+            bottom: 26px;
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            padding: 10px 17px;
+            background: rgba(3,5,8,0.58);
+            color: var(--text-muted);
+            font: 600 0.68rem/1 'Space Grotesk', sans-serif;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            transition: color .25s ease, border-color .25s ease, transform .25s ease;
+        }
+        .intro-skip:hover,
+        .intro-skip:focus-visible { color: var(--neon-blue); border-color: var(--neon-blue); transform: translateY(-2px); }
+
+        .intro-mode #timeline-bar,
+        .intro-mode #timeline-ticks,
+        .intro-mode #control-bar,
+        .intro-mode #teleprompter,
+        .intro-mode #hint,
+        .intro-mode #slide-rail,
+        .intro-mode .slide-time { opacity: 0; pointer-events: none; }
+
+        /* Compact slide navigator */
+        #slide-rail {
+            position: fixed;
+            top: 50%;
+            left: 22px;
+            z-index: 110;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 10px;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 999px;
+            background: rgba(5,8,13,0.58);
+            backdrop-filter: blur(14px);
+            transition: opacity 0.35s ease;
+        }
+        #rail-count {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            color: var(--text-muted);
+            font: 600 0.6rem/1 'Space Grotesk', sans-serif;
+            letter-spacing: 0.13em;
+        }
+        #rail-dots { display: flex; flex-direction: column; gap: 8px; }
+        #rail-dots button {
+            width: 7px;
+            height: 7px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+        }
+        #rail-dots button:hover { background: #fff; transform: scale(1.4); }
+        #rail-dots button.active { background: var(--neon-blue); transform: scale(1.5); box-shadow: 0 0 12px var(--neon-blue); }
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--neon-blue);
+            outline-offset: 4px;
+        }
 
         /* =========================================
            CLOSING
@@ -356,12 +808,52 @@
             .hero-title { font-size: 3.4rem; }
             .stats-grid, .objectives-grid, .metrics-grid, .comparison-grid, .impact-grid, .market-grid, .demo-side { grid-template-columns: 1fr; }
             .arch-flow { grid-template-columns: 1fr; }
+            .arch-node:not(:last-child)::after { display: none; }
             .tagline { font-size: 2.6rem; }
             .slide-time { position: static; margin-bottom: 12px; align-self:flex-start; }
+            #slide-rail, #hint { display: none; }
+            section { padding: 72px 7% 112px; }
+            #control-bar { bottom: 12px; max-width: calc(100vw - 18px); gap: 8px; padding: 8px 10px; }
+            #control-bar button { width: 38px; height: 38px; }
+            .slide-timer-block { display: none; }
+            .timer-block { min-width: 72px; }
+            #global-timer { font-size: 1.08rem; }
+            .ctrl-toggle { padding: 0 10px; }
+            #teleprompter { bottom: 76px; width: calc(100vw - 20px); padding: 16px 18px; }
+            #tp-script { font-size: 1rem; }
+            .intro-stage { min-height: 500px; }
+            .intro-lock { width: 94px; height: 116px; margin-bottom: 102px; }
+            .intro-orbit { width: min(82vw, 430px); }
+            .intro-skip { right: 16px; bottom: 18px; }
+            .cover-meta { grid-template-columns: 1fr 1fr; }
+            .cover-meta > .wide { grid-column: span 2; }
+        }
+
+        @media (max-height: 760px) and (min-width: 951px) {
+            section { padding-top: 52px; padding-bottom: 52px; }
+            .section-header { font-size: 2.85rem; margin-bottom: 12px; }
+            .section-subtitle { margin-bottom: 24px; }
+            .glass-card { padding: 25px; }
+            .metric-value { font-size: 3.45rem; }
+            .metrics-grid .glass-card { min-height: 150px; }
+            .tagline { font-size: 3.7rem; }
+            #cover { padding-top: 36px; padding-bottom: 42px; }
+            #cover .event-badge { margin-bottom: 18px; padding: 6px 14px; }
+            #cover .shield-icon { width: 60px; height: 74px; margin-bottom: 16px; }
+            #cover .hero-title { font-size: 4.6rem; margin-bottom: 8px; }
+            #cover .hero-subject { font-size: 1.05rem; margin-bottom: 12px; }
+            #cover .cover-meta { margin-top: 8px; gap: 10px 20px; }
+            #cover .cover-meta .lbl { font-size: 0.62rem; margin-bottom: 2px; }
+            #cover .cover-meta .val { font-size: 0.88rem; }
+            #cover .theme-strip { margin-top: 14px; padding: 9px 18px; font-size: 0.8rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
-<body>
+<body class="intro-mode chrome-hidden">
 
     <div class="ambient-glow"></div>
     <div class="ambient-glow red"></div>
@@ -406,20 +898,46 @@
 
     <div id="hint"><b>Space</b> play &middot; <b>&larr;/&rarr;</b> slides &middot; <b>A</b> auto &middot; <b>T</b> script &middot; <b>H</b> hide chrome</div>
 
+    <nav id="slide-rail" aria-label="Pitch deck slides">
+        <span id="rail-count">01 / 12</span>
+        <span id="rail-dots"></span>
+    </nav>
+
+    <!-- ================= INTRO ANIMATION PAGE ================= -->
+    <!-- No data-slide attribute here, so the cinematic opening never affects the strict 5:00 timer. -->
+    <section id="intro" aria-label="ShieldGuard cinematic introduction">
+        <div class="intro-stage" aria-hidden="true">
+            <div class="intro-orbit"></div>
+            <div class="intro-wave" id="intro-wave"></div>
+            <div class="intro-lock"></div>
+            <div class="intro-copy">
+                <div class="intro-kicker">Vishing intelligence activated</div>
+                <h1 class="intro-title">Shield<span class="text-gradient-blue">Guard</span></h1>
+                <p class="intro-tagline">Detect the words &middot; Explain the risk &middot; Stop the scam</p>
+            </div>
+            <div class="intro-status">
+                <div class="intro-status-line"></div>
+                <p>Conversation defence online</p>
+            </div>
+        </div>
+        <button class="intro-skip" id="intro-skip" type="button">Enter presentation &rarr;</button>
+    </section>
+
     <!-- ================= SLIDE 1: TITLE ================= -->
     <section id="cover" data-slide>
         <div class="slide-time">&#9201; <b>0:00 to 0:12</b> &middot; 12s</div>
-        <div class="event-badge reveal">&#9733; International EUREKA Innovation Exhibition &middot; i-EIE 2026</div>
+        <div class="event-badge reveal">&#9733; Registration Accepted &middot; International EUREKA Innovation Exhibition 2026</div>
         <div class="shield-icon reveal delay-1"></div>
         <h1 class="hero-title reveal delay-1">Shield<span class="text-gradient-blue">Guard</span></h1>
-        <p class="hero-subject reveal delay-2">Vishing Detection Using Machine Learning and Natural Language Processing</p>
+        <p class="hero-subject reveal delay-2">Vishing Detection Using Machine Learning &amp; Natural Language Processing</p>
 
         <div class="cover-meta reveal delay-3">
-            <div><div class="lbl">Innovator</div><div class="val">Mohamad Ikmal Hafizi</div></div>
+            <div><div class="lbl">Name</div><div class="val">Mohamad Ikmal Hafizi</div></div>
             <div><div class="lbl">Institute</div><div class="val">UniKL MIIT</div></div>
-            <div><div class="lbl">Supervisor</div><div class="val">Ts. Dalilah Binti Abdullah</div></div>
-            <div><div class="lbl">Chapter</div><div class="val">A &middot; Electrical, ICT and Telecommunication</div></div>
             <div><div class="lbl">i-EIE ID</div><div class="val">IEIE2026_148</div></div>
+            <div><div class="lbl">Mode</div><div class="val">Online</div></div>
+            <div class="wide"><div class="lbl">Reference &middot; Date</div><div class="val">UNIKLMSI/R&amp;I/1/i-EIE2026/_148 &middot; 22 July 2026</div></div>
+            <div class="wide"><div class="lbl">Category</div><div class="val">Chapter A &middot; Electrical, Electronics, ICT, Multimedia and Telecommunication</div></div>
         </div>
         <div class="theme-strip reveal delay-4">Theme: &ldquo;Transforming Challenges Into Future Solutions&rdquo;</div>
     </section>
@@ -557,7 +1075,7 @@
         <h2 class="section-header reveal">From spoken words to a <span class="text-gradient-blue">verdict</span> in seconds.</h2>
         <div class="demo-side" style="margin-top: 10px;">
             <div class="video-container reveal-scale delay-1">
-                <video width="100%" height="100%" style="border-radius: 18px; object-fit: cover; transform: translateZ(0); backface-visibility: hidden;" loop muted controls playsinline preload="auto">
+                <video width="100%" height="100%" style="border-radius: 18px; object-fit: cover; transform: translateZ(0); backface-visibility: hidden;" loop muted controls playsinline preload="metadata">
                     <source src="Exhibition.6.minit.mp4" type="video/mp4">
                     <source src="https://github.com/skykidd/shieldguard/releases/download/v1.0/Exhibition.6.minit.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -709,6 +1227,7 @@
         TIMELINE.forEach((t, i) => {
             t.end = (i < TIMELINE.length - 1) ? TIMELINE[i + 1].start : TOTAL;
             t.el = slides[i];
+            t.el.dataset.index = String(i + 1).padStart(2, '0');
         });
 
         /* ---------- STATE ---------- */
@@ -736,6 +1255,57 @@
         const tpWindow = document.getElementById('tp-window');
         const tpScript = document.getElementById('tp-script');
         const tpNext = document.getElementById('tp-next-text');
+        const railCount = document.getElementById('rail-count');
+        const railDots = document.getElementById('rail-dots');
+        const intro = document.getElementById('intro');
+        const introSkip = document.getElementById('intro-skip');
+        const introWave = document.getElementById('intro-wave');
+
+        /* ---------- CINEMATIC INTRO ---------- */
+        const waveHeights = [18,28,13,42,24,60,34,76,42,88,54,72,32,96,48,82,38,68,28,54,20,42,16,30,12,24,16,38,24,58,30,74,44,92,52,78,36,64,30,50,18,38,13,28,18,24,12,20];
+        waveHeights.forEach((height, i) => {
+            const bar = document.createElement('span');
+            bar.style.setProperty('--h', height + 'px');
+            bar.style.setProperty('--d', ((i % 9) * -0.07) + 's');
+            introWave.appendChild(bar);
+        });
+
+        let introFinished = false;
+        function finishIntro() {
+            if (introFinished) return;
+            introFinished = true;
+            document.body.classList.remove('intro-mode');
+            smoothScrollTo(slides[0]);
+        }
+        introSkip.addEventListener('click', finishIntro);
+        intro.addEventListener('dblclick', finishIntro);
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.setTimeout(finishIntro, reduceMotion ? 250 : 5900);
+
+        /* ---------- POINTER LIGHT ---------- */
+        window.addEventListener('pointermove', (event) => {
+            document.documentElement.style.setProperty('--mx', event.clientX + 'px');
+            document.documentElement.style.setProperty('--my', event.clientY + 'px');
+        }, { passive: true });
+
+        /* ---------- SLIDE NAVIGATOR ---------- */
+        TIMELINE.forEach((t, i) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.title = t.label;
+            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1) + ': ' + t.label);
+            dot.addEventListener('click', () => goToSlide(i));
+            railDots.appendChild(dot);
+        });
+
+        function updateSlideState() {
+            railCount.textContent = String(currentIndex + 1).padStart(2, '0') + ' / ' + String(TIMELINE.length).padStart(2, '0');
+            railDots.querySelectorAll('button').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+                dot.setAttribute('aria-current', i === currentIndex ? 'true' : 'false');
+            });
+            slides.forEach((slide, i) => slide.classList.toggle('is-current', i === currentIndex));
+        }
 
         /* ---------- TIMELINE TICKS ---------- */
         const ticks = document.getElementById('timeline-ticks');
@@ -751,7 +1321,7 @@
 
         function smoothScrollTo(el) {
             isScrolling = true;
-            const targetY = el.offsetTop;
+            const targetY = el.offsetTop || 0;
             const startY = window.scrollY;
             const dist = targetY - startY;
             const dur = 900; let startT = null;
@@ -771,6 +1341,7 @@
             currentIndex = i;
             if (scroll) smoothScrollTo(TIMELINE[i].el);
             updateTeleprompter();
+            updateSlideState();
         }
 
         function setTp(show) {
@@ -809,6 +1380,7 @@
             if (seg !== currentIndex) {
                 currentIndex = seg;
                 updateTeleprompter();
+                updateSlideState();
                 if (autoAdvance) smoothScrollTo(TIMELINE[seg].el);
             }
             render();
@@ -839,20 +1411,47 @@
         btnAuto.addEventListener('click', () => { autoAdvance = !autoAdvance; btnAuto.classList.toggle('on', autoAdvance); if (autoAdvance && playing) smoothScrollTo(TIMELINE[currentIndex].el); });
         btnHide.addEventListener('click', () => document.body.classList.toggle('chrome-hidden'));
 
-        // teleprompter on by default
-        setTp(true);
+        // Keep the public deck clean by default; presenters can press T when they need the script.
+        setTp(false);
 
         /* ---------- KEYBOARD ---------- */
         document.addEventListener('keydown', (e) => {
             if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
             switch (e.key) {
-                case ' ': case 'Spacebar': e.preventDefault(); togglePlay(); break;
-                case 'ArrowRight': case 'ArrowDown': e.preventDefault(); goToSlide(currentIndex + 1); break;
-                case 'ArrowLeft': case 'ArrowUp': e.preventDefault(); goToSlide(currentIndex - 1); break;
-                case 't': case 'T': setTp(!tp.classList.contains('show')); break;
-                case 'a': case 'A': btnAuto.click(); break;
-                case 'h': case 'H': document.body.classList.toggle('chrome-hidden'); break;
-                case 'r': case 'R': reset(); break;
+                case ' ': case 'Spacebar':
+                    e.preventDefault();
+                    togglePlay();
+                    break;
+                case 'ArrowRight': case 'ArrowDown':
+                    e.preventDefault();
+                    // If at the very top (blank intro page), Arrow Down starts slide 1
+                    if (window.scrollY < window.innerHeight / 2 && currentIndex === 0) {
+                        finishIntro();
+                    } else {
+                        goToSlide(currentIndex + 1);
+                    }
+                    break;
+                case 'ArrowLeft': case 'ArrowUp':
+                    e.preventDefault();
+                    // If on Slide 1, Arrow Up takes you back to the blank intro page
+                    if (currentIndex === 0) {
+                        smoothScrollTo({ offsetTop: 0 });
+                    } else {
+                        goToSlide(currentIndex - 1);
+                    }
+                    break;
+                case 't': case 'T':
+                    setTp(!tp.classList.contains('show'));
+                    break;
+                case 'a': case 'A':
+                    btnAuto.click();
+                    break;
+                case 'h': case 'H':
+                    document.body.classList.toggle('chrome-hidden');
+                    break;
+                case 'r': case 'R':
+                    reset();
+                    break;
             }
         });
 
@@ -861,8 +1460,22 @@
             if (isScrolling || playing) return;
             let min = Infinity, idx = 0;
             TIMELINE.forEach((t, i) => { const d = Math.abs(t.el.offsetTop - window.scrollY); if (d < min) { min = d; idx = i; } });
-            if (idx !== currentIndex) { currentIndex = idx; updateTeleprompter(); render(); }
+            if (idx !== currentIndex) { currentIndex = idx; updateTeleprompter(); updateSlideState(); render(); }
         });
+
+        /* ---------- TOUCH NAVIGATION ---------- */
+        let touchStartX = 0;
+        let touchStartY = 0;
+        window.addEventListener('touchstart', (event) => {
+            touchStartX = event.changedTouches[0].clientX;
+            touchStartY = event.changedTouches[0].clientY;
+        }, { passive: true });
+        window.addEventListener('touchend', (event) => {
+            if (event.target.closest('video, audio, a, button')) return;
+            const dx = event.changedTouches[0].clientX - touchStartX;
+            const dy = event.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) > 64 && Math.abs(dx) > Math.abs(dy) * 1.3) goToSlide(currentIndex + (dx < 0 ? 1 : -1));
+        }, { passive: true });
 
         /* ---------- REVEAL OBSERVER + VIDEO CONTROL ---------- */
         const observer = new IntersectionObserver((entries) => {
@@ -904,6 +1517,7 @@
 
         /* ---------- INIT ---------- */
         updateTeleprompter();
+        updateSlideState();
         render();
     });
     </script>
